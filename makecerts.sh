@@ -19,7 +19,7 @@ openssl x509 -noout -text -in ca/root/certs/ca.cert.pem
 
 # Create intemediate cert
 openssl req -config ca/intermediate/openssl.cnf -new -sha256 -key ca/intermediate/private/intermediate.key.pem  -out ca/intermediate/csr/intermediate.csr.pem
-openssl ca -config ca/root/openssl.cnf -extensions v3_intermediate_ca -days 3650 -notext -md sha256 -in ca/intermediate/csr/intermediate.csr.pem -out ca/intermediate/certs/intermediate.cert.pem
+openssl ca -batch -config ca/root/openssl.cnf -extensions v3_intermediate_ca -days 3650 -notext -md sha256 -in ca/intermediate/csr/intermediate.csr.pem -out ca/intermediate/certs/intermediate.cert.pem
 openssl x509 -noout -text -in ca/intermediate/certs/intermediate.cert.pem
 openssl verify -CAfile ca/root/certs/ca.cert.pem ca/intermediate/certs/intermediate.cert.pem
 cat ca/intermediate/certs/intermediate.cert.pem ca/root/certs/ca.cert.pem > ca/intermediate/certs/ca-chain.cert.pem
