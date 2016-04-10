@@ -4,10 +4,9 @@ An alternate implementation of the FIDO Metadata Service (MDS).
 The specification for the FIDO MDS can be found here:
 https://fidoalliance.org/specs/fido-uaf-v1.0-ps-20141208/fido-uaf-metadata-service-v1.0-ps-20141208.html
 
-And the actual production implementation can be found her:
+And the actual production implementation can be found here:
 https://mds.fidoalliance.org
 
-<hr>
 ## Installation & Setup
 
 `makecerts.sh` equires openssl to be installed.
