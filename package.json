@@ -24,6 +24,7 @@
     "base64url": "^1.0.6",
     "dateformat": "^1.0.12",
     "express": "^4.13.4",
+    "fs-extra": "^0.26.7",
     "jsonwebtoken": "^5.7.0",
     "jsrsasign": "^5.0.7",
     "node-uuid": "^1.4.7"
