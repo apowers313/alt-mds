@@ -1,4 +1,3 @@
-var fs = require("fs");
 var b64url = require("base64url");
 var uuid = require('node-uuid');
 var express = require('express');
@@ -13,7 +12,7 @@ var app = express();
 // conifg
 // TODO: move this to an external JSON file
 var entryPath = "/metadata/";
-var httpHost = "localhost"
+var httpHost = "localhost";
 var httpPort = "8080";
 var httpProtocol = "http";
 var privateKeyTxtFile = __dirname + "/ca/intermediate/private/intermediate.key.txt";
