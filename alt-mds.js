@@ -13,7 +13,8 @@ var app = express();
 // conifg
 // TODO: move this to an external JSON file
 var entryPath = "/metadata/";
-var httpHost = "localhost:8080";
+var httpHost = "localhost"
+var httpPort = "8080";
 var httpProtocol = "http";
 var privateKeyTxtFile = __dirname + "/ca/intermediate/private/intermediate.key.txt";
 var privateKeyPemFile = __dirname + "/ca/intermediate/private/intermediate.key.pem";
@@ -21,6 +22,11 @@ var signingCertFile = __dirname + "/ca/intermediate/certs/intermediate.cert.pem"
 var rootCertFile = __dirname + "/ca/root/certs/ca.cert.pem";
 var dbdir = __dirname + "/database/"; // TODO: if doesn't exist, fail
 var mddir = __dirname + entryPath;
+
+// override defaults for Heroku if env variables are defined
+httpPort = process.env.PORT ? process.env.PORT : httpPort; 
+httpHost = process.env.HOST ? process.env.HOST : httpHost;
+console.log ("Host:",httpHost,"; Port:", httpPort);
 
 // serve static files (metadata entries)
 app.use(entryPath, express.static(mddir));
@@ -98,8 +104,8 @@ function buildRawMdsToc(files) {
 		ret.officialFile = mddir + ret.guid;
 		ret.url = url.format({
 			protocol: httpProtocol,
-			host: httpHost,
-			pathname: entryPath + ret.guid
+			host: httpHost + ":" + httpPort,
+			pathname: entryPath + ret.guid // TODO: maybe it'd be nice to use AAID instead of guid
 		});
 		ret.hash = hashB64Record(ret.b64);
 
@@ -163,4 +169,4 @@ function cleanMdsToc(toc) {
 }
 
 // fire up webserver
-app.listen(8080);
+app.listen(httpPort);
