@@ -1,4 +1,13 @@
-ca
-database
+ca/intermediate/certs
+ca/intermediate/crl
+ca/intermediate/csr
+ca/intermediate/private
+ca/intermediate/crlnumber
+ca/root/certs
+ca/root/crl
+ca/root/newcerts
+ca/root/private
+ca/root/index*
+ca/root/serial*
 metadata
 node_modules

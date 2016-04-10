@@ -4,7 +4,8 @@
   "description": "An alternate implementation of the FIDO Metadata Service",
   "main": "alt-mds.js",
   "scripts": {
-    "start": "node alt-mds.js"
+    "start": "node alt-mds.js",
+    "postinstall": "chmod 755 makecerts.sh && ./makecerts.sh"
   },
   "engines": {
     "node": "4.4.0"
