@@ -23,9 +23,9 @@ var dbdir = __dirname + "/database/"; // TODO: if doesn't exist, fail
 var mddir = __dirname + entryPath;
 
 // override defaults for Heroku if env variables are defined
-httpPort = process.env.PORT ? process.env.PORT : httpPort; 
+httpPort = process.env.PORT ? process.env.PORT : httpPort;
 httpHost = process.env.HOST ? process.env.HOST : httpHost;
-console.log ("Host:",httpHost,"; Port:", httpPort);
+console.log("Host:", httpHost, "; Port:", httpPort);
 
 // serve static files (metadata entries)
 app.use(entryPath, express.static(mddir));
@@ -34,7 +34,7 @@ app.use(entryPath, express.static(mddir));
 app.get('/', function(req, res) {
 	res.setHeader("Content-Disposition", "inline");
 	res.setHeader("Content-Type", "application/octet-stream");
-	console.log ("Serving up:\n" + mdsJwt);
+	console.log("Serving up:\n" + mdsJwt);
 	res.send(mdsJwt);
 });
 
@@ -63,7 +63,7 @@ var x5c = [];
 // x5c is the cert chain without the PEM -----BEGIN/END headers
 x5c[0] = fs.readFileSync(signingCertFile, {
 	encoding: "utf8"
-}).toString().match(/^[^-\s]+$/gm).join(""); 
+}).toString().match(/^[^-\s]+$/gm).join("");
 x5c[1] = fs.readFileSync(rootCertFile, {
 	encoding: "utf8"
 }).toString().match(/^[^-\s]+$/gm).join("");
@@ -81,7 +81,10 @@ console.log(pkPem);
 
 var mdsJwt = jwt.sign(mdsToc, pkPem, {
 	algorithm: "ES256",
-	headers: {x5c: x5c}
+	noTimestamp: true,
+	headers: {
+		x5c: x5c
+	}
 });
 console.log("MDS JWT:\n" + mdsJwt);
 
@@ -96,7 +99,7 @@ function buildRawMdsToc(files) {
 	var mdsRawEntries = files.map(function(file) {
 		var ret = {};
 		ret.srcFile = file;
-		ret.raw = require(file);
+		ret.raw = fs.readFileSync(file);
 		ret.parsed = JSON.parse(ret.raw);
 		ret.guid = uuid.v4();
 		ret.b64 = b64url.encode(ret.raw);
