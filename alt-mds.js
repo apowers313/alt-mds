@@ -109,7 +109,10 @@ function buildRawMdsToc(files) {
 		ret.hash = hashB64Record(ret.b64);
 
 		ret.timeOfLastStatusChange = dateFormat(fs.statSync(ret.srcFile).mtime, "yyyy-mm-dd");
+		// only one of the next three items is going to be defined, but that's okay
 		ret.aaid = ret.parsed.aaid;
+		ret.attestationCertificateKeyIdentifiers = ret.parsed.attestationCertificateKeyIdentifiers;
+		ret.aaguid = ret.parsed.aaguid;
 		ret.statusReports = [{
 			status: "NOT_FIDO_CERTIFIED",
 			url: "",
@@ -160,6 +163,8 @@ function cleanMdsToc(toc) {
 		ret.timeOfLastStatusChange = entry.timeOfLastStatusChange;
 		ret.hash = entry.hash;
 		ret.aaid = entry.aaid;
+		ret.attestationCertificateKeyIdentifiers = entry.attestationCertificateKeyIdentifiers;
+		ret.aaguid = entry.aaguid;
 		ret.statusReports = entry.statusReports;
 		return ret;
 	});
