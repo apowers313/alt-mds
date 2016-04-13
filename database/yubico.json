@@ -1,0 +1,25 @@
+{
+  "description": "Security Key by Yubico",
+  "attestationCertificateKeyIdentifiers":
+["859df0774129f02bc41bfba91f3cba271da7c866",
+"c9aa3db267ab3faf6b1a895d1e07b38feb7dd790",
+"ec9f709878dd14dbb676bbe49f1405ec770d02f0",
+"2499f106a6e4e95aa123c2609a199ab8bd453b00",
+"c8accd95d825c10732597a3903832c6aef42ed96"],
+  "protocolFamily": "u2f",
+  "authenticatorVersion": 1,
+  "upv": [{ "major": 1, "minor": 0 }],
+  "assertionScheme": "U2FV2BIN",
+  "authenticationAlgorithm": 2,
+  "publicKeyAlgAndEncoding": 256,
+  "attestationTypes": [15879],
+  "userVerificationDetails": [ [ { "userVerification": 1 } ] ],
+  "keyProtection": 26,
+  "matcherProtection": 4,
+  "attachmentHint": 2,
+  "isSecondFactorOnly": "true",
+  "tcDisplay": 0,
+  "attestationRootCertificates": [
+    "MIIDHjCCAgagAwIBAgIEG0BT9zANBgkqhkiG9w0BAQsFADAuMSwwKgYDVQQDEyNZdWJpY28gVTJGIFJvb3QgQ0EgU2VyaWFsIDQ1NzIwMDYzMTAgFw0xNDA4MDEwMDAwMDBaGA8yMDUwMDkwNDAwMDAwMFowLjEsMCoGA1UEAxMjWXViaWNvIFUyRiBSb290IENBIFNlcmlhbCA0NTcyMDA2MzEwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQC/jwYuhBVlqaiYWEMsrWFisgJ+PtM91eSrpI4TK7U53mwCIawSDHy8vUmk5N2KAj9abvT9NP5SMS1hQi3usxoYGonXQgfO6ZXyUA9a+KAkqdFnBnlyugSeCOep8EdZFfsaRFtMjkwz5Gcz2Py4vIYvCdMHPtwaz0bVuzneueIEz6TnQjE63Rdt2zbwnebwTG5ZybeWSwbzy+BJ34ZHcUhPAY89yJQXuE0IzMZFcEBbPNRbWECRKgjq//qT9nmDOFVlSRCt2wiqPSzluwn+v+suQEBsUjTGMEd25tKXXTkNW21wIWbxeSyUoTXwLvGS6xlwQSgNpk2qXYwf8iXg7VWZAgMBAAGjQjBAMB0GA1UdDgQWBBQgIvz0bNGJhjgpToksyKpP9xv9oDAPBgNVHRMECDAGAQH/AgEAMA4GA1UdDwEB/wQEAwIBBjANBgkqhkiG9w0BAQsFAAOCAQEAjvjuOMDSa+JXFCLyBKsycXtBVZsJ4Ue3LbaEsPY4MYN/hIQ5ZM5p7EjfcnMG4CtYkNsfNHc0AhBLdq45rnT87q/6O3vUEtNMafbhU6kthX7Y+9XFN9NpmYxr+ekVY5xOxi8h9JDIgoMP4VB1uS0aunL1IGqrNooL9mmFnL2kLVVee6/VR6C5+KSTCMCWppMuJIZII2v9o4dkoZ8Y7QRjQlLfYzd3qGtKbw7xaF1UsG/5xUb/Btwb2X2g4InpiB/yt/3CpQXpiWX/K4mBvUKiGn05ZsqeY1gx4g0xLBqcU9psmyPzK+Vsgw2jeRQ5JlKDyqE0hebfC1tvFu0CCrJFcw=="
+  ]
+}
